@@ -1,1 +1,48 @@
-data persistence , business logic and user experience .
+The main goal is to learning about - data persistence , business logic and user experience .
+* Project: ROI Compass (SaaS prototype)
+
+* Goal: Replace spreadsheets with a simple, high-performance marketing dashboard
+
+* Built using Agile approach (4 sprints)
+
+* Core functionality:
+
+  * Input campaign data (budget, clicks, leads, revenue)
+  * Instantly calculate:
+
+    * CPC (Cost Per Click)
+    * CPL (Cost Per Lead)
+    * ROAS (Return on Ad Spend)
+  * Display results in real time
+
+* Data handling:
+
+  * Save campaign data in browser (LocalStorage or IndexedDB)
+  * Load saved campaigns when user returns
+  * Allow basic comparison of campaigns
+
+* UI/UX:
+
+  * Clean, modern dashboard design
+  * Fully responsive (mobile + desktop)
+  * Dark Mode support
+  * Simple and intuitive layout
+
+* Extra functionality:
+
+  * Export results as PDF
+  * Input validation (avoid errors like divide-by-zero)
+
+* Key success indicators:
+
+  * Accurate calculations
+  * Reliable data persistence
+  * Smooth and professional user experience
+
+* Sprint plan:
+
+  * Sprint 1: Setup project, build input form, implement calculations
+  * Sprint 2: Add data saving and retrieval
+  * Sprint 3: Improve UI, add dark mode, polish layout
+  * Sprint 4: Add PDF export, optimize performance, fix bugs
+

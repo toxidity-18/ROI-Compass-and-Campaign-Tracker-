@@ -3,9 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>ROI Compass | Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="logo">
+        <span>📊 ROI Compass</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Dashboard</a></li>
+          <li><a href="campaigns.html">Campaigns</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h1>ROI Dashboard</h1>
+      <div class="metrics-grid">
+        <div class="metric-card" id="cardCPC">
+          <h3>Cost Per Click (CPC)</h3>
+          <div class="metric-value" id="cpcValue">$0.00</div>
+        </div>
+        <div class="metric-card" id="cardCPL">
+          <h3>Cost Per Lead (CPL)</h3>
+          <div class="metric-value" id="cplValue">$0.00</div>
+        </div>
+        <div class="metric-card">
+          <h3>Total Leads</h3>
+          <div class="metric-value" id="leadsValue">0</div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h2>Campaign Inputs</h2>
+        <div class="input-group">
+          <label for="budget">Budget ($)</label>
+          <input type="number" id="budget" placeholder="e.g., 1000" step="any">
+        </div>
+        <div class="input-group">
+          <label for="clicks">Clicks</label>
+          <input type="number" id="clicks" placeholder="e.g., 5000" step="any">
+        </div>
+        <div class="input-group">
+          <label for="convRate">Conversion Rate (%)</label>
+          <input type="number" id="convRate" placeholder="e.g., 2.5" step="any">
+        </div>
+        <button id="calculateBtn" class="primary-btn">Calculate ROI</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/calculations.js"></script>
+  <script src="assets/js/ui.js"></script>
 </body>
 </html>

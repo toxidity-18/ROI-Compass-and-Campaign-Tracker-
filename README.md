@@ -1,4 +1,4 @@
-# ROI Compass – SaaS Prototype
+# ROI Compass 
 
 A professional marketing dashboard that helps marketers move from spreadsheets to real‑time ROI calculations, campaign storage, and client‑ready reports.
 
