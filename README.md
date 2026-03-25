@@ -19,7 +19,7 @@ A professional marketing dashboard that helps marketers move from spreadsheets t
 ## Project Structure
 ``` bash 
 
-ROI-Compass-and-Campaign-Tracker-/
+ROI-Compass-and-Campaign-/
 ├── assets/
 │ ├── css/
 │ │ └── style.css
