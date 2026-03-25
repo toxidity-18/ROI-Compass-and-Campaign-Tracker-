@@ -1,3 +1,29 @@
+/* 1. Variables and Themes */
+:root {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --border: #e2e8f0;
+  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --warning: #f59e0b;
+  --success: #10b981;
+}
+
+body.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --border: #334155;
+  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* 2. Global Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -6,10 +32,12 @@
 
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
-  background-color: #f8fafc;
-  color: #0f172a;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
 }
 
+/* 3. Layout */
 .app-container {
   display: flex;
   min-height: 100vh;
@@ -17,20 +45,29 @@ body {
 
 .sidebar {
   width: 260px;
-  background-color: #ffffff;
-  border-right: 1px solid #e2e8f0;
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border);
   padding: 2rem 1rem;
   position: sticky;
   top: 0;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: calc(100% - 260px);
+}
+
+/* 4. Sidebar Elements */
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
   padding-left: 0.5rem;
-  color: #3b82f6;
+  color: var(--accent);
 }
 
 nav ul {
@@ -46,27 +83,17 @@ nav a {
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   text-decoration: none;
-  color: #334155;
+  color: var(--text-secondary);
   transition: all 0.2s;
 }
 
 nav a:hover,
 nav a.active {
-  background-color: #3b82f6;
+  background-color: var(--accent);
   color: white;
 }
 
-.main-content {
-  flex: 1;
-  padding: 2rem;
-  max-width: calc(100% - 260px);
-}
-
-h1 {
-  margin-bottom: 1.5rem;
-  font-size: 1.875rem;
-}
-
+/* 5. Components & Cards */
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -74,34 +101,32 @@ h1 {
   margin-bottom: 2rem;
 }
 
-.metric-card {
-  background-color: #ffffff;
+.metric-card, .form-card, .table-wrapper {
+  background-color: var(--bg-secondary);
   border-radius: 1rem;
   padding: 1.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid #3b82f6;
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.3s;
+}
+
+.metric-card {
+  border-left: 4px solid var(--accent);
 }
 
 .metric-card h3 {
   font-size: 1rem;
   font-weight: 500;
-  color: #334155;
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
 }
 
 .metric-value {
   font-size: 2rem;
   font-weight: bold;
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
-.form-card {
-  background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
+/* 6. Forms & Inputs */
 .input-group {
   margin-bottom: 1rem;
 }
@@ -110,22 +135,30 @@ h1 {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
+  color: var(--text-primary);
 }
 
-input {
+input, textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border);
   border-radius: 0.5rem;
-  background-color: #ffffff;
-  transition: border-color 0.2s;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border-color 0.2s, background-color 0.2s;
 }
 
 input:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: var(--accent);
 }
 
+input.error {
+  border-color: var(--danger);
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* 7. Buttons */
 button {
   padding: 0.75rem 1.5rem;
   border: none;
@@ -136,11 +169,76 @@ button {
 }
 
 .primary-btn {
-  background-color: #3b82f6;
+  background-color: var(--accent);
   color: white;
   width: 100%;
 }
 
 .primary-btn:hover {
-  background-color: #2563eb;
+  background-color: var(--accent-hover);
+}
+
+.secondary-btn {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.secondary-btn:hover {
+  background-color: var(--border);
+}
+
+.danger-btn, .delete-campaign {
+  background-color: var(--danger);
+  color: white;
+}
+
+.danger-btn:hover, .delete-campaign:hover {
+  background-color: var(--danger-hover);
+}
+
+/* 8. Data Table */
+.table-wrapper {
+  overflow-x: auto;
+  padding: 0; /* Let table fill container */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background-color: var(--bg-primary);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* 9. Theme Toggle (At bottom of sidebar) */
+.theme-toggle {
+  margin-top: auto;
+  padding: 1rem 0;
+}
+
+#darkModeToggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  width: 100%;
+  color: var(--text-primary);
+  transition: all 0.2s;
+}
+
+#darkModeToggle:hover {
+  background-color: var(--border);
 }
