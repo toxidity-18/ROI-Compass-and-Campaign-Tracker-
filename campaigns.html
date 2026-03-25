@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROI Compass | Campaigns</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="logo">
+        <span>📊 ROI Compass</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="campaigns.html" class="active">Campaigns</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h1>Saved Campaigns</h1>
+      <div class="table-controls">
+        <button id="clearAllBtn" class="danger-btn">🗑️ Clear All Campaigns</button>
+      </div>
+      <div class="table-wrapper">
+        <table id="campaignsTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Budget ($)</th>
+              <th>Clicks</th>
+              <th>Conv. Rate (%)</th>
+              <th>CPC ($)</th>
+              <th>CPL ($)</th>
+              <th>Leads</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="campaignsTableBody">
+            <tr><td colspan="8">No campaigns saved yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/calculations.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/ui.js"></script>
+</body>
+</html>
